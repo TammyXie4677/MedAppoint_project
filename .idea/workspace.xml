@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f40e3bc-0c36-42f7-be24-16c79cca432a" name="Changes" comment="" />
+    <list default="true" id="0f40e3bc-0c36-42f7-be24-16c79cca432a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/src/main/java/com/example/medappoint_demo/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/src/main/java/com/example/medappoint_demo/MedappointDemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/medappoint_demo/src/test/java/com/example/medappoint_demo/MedappointDemoApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,23 +24,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2m9uiCFskJZykOJGQpoTkcgdxeb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tammyxie/Documents/GitHub/MedAppoint_project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -44,6 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1726501237168</updated>
       <workItem from="1726501238208" duration="103000" />
+      <workItem from="1726501620285" duration="800000" />
+      <workItem from="1726502635034" duration="179000" />
     </task>
     <servers />
   </component>
