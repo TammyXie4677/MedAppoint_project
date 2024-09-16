@@ -24,3 +24,24 @@ Example entries for one day, both team members:
 - 
 3. Need assistance / figure things out
 - 
+
+2024/09/14-15 Yunting Xie
+1. Done / not done since last scrum:
+- Finished 5-10 backlogs on Trello
+- Created a new app on heroku
+- Deployed Github on heroku
+- Download heroku CLI & Heroku Postgres
+- Not finished setup postgres on heroku
+2. To do until next Scrum:
+- Setup a simple java springboot on heroku 
+- Setup AWS S3 on heroku
+3. Need assistance / figure things out
+- Need to setup postgres
+
+2024/09/13 Fei Yang
+1. Done since last scrum
+- 
+2. Plan until next Scrum
+- 
+3. Need assistance / figure things out
+- 
