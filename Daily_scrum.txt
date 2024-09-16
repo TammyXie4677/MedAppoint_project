@@ -38,7 +38,24 @@ Example entries for one day, both team members:
 3. Need assistance / figure things out
 - Need to setup postgres
 
-2024/09/13 Fei Yang
+2024/09/14-15 Fei Yang
+1. Done since last scrum
+- 
+2. Plan until next Scrum
+- 
+3. Need assistance / figure things out
+- 
+2024/09/16 Yunting Xie
+1. Done / not done since last scrum:
+- Not finished setup postgres on heroku
+2. To do until next Scrum:
+- Setup admin/patient/doctor interface
+- Add simple CURL to Admin 
+- Setup AWS S3 on heroku
+3. Need assistance / figure things out
+- Setup Security
+
+2024/09/16 Fei Yang
 1. Done since last scrum
 - 
 2. Plan until next Scrum
