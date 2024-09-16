@@ -15,7 +15,7 @@ Example entries for one day, both team members:
 - Host the database on AWS RDS
 - Host the file upload on AWS S3
 3. Need assistance / figure things out
-- Host the application on Hakuro
+- Host the application on Heroku
 
 2024/09/13 Fei Yang
 1. Done since last scrum
