@@ -62,3 +62,24 @@ Example entries for one day, both team members:
 - 
 3. Need assistance / figure things out
 - 
+
+2024/09/17 Yunting Xie
+1. Done / not done since last scrum:
+- Deployed my app on hero
+- Connected Postgres Database
+- Connected Aws S3
+- Not finish Html file for admin/patient/doctor interface
+2. To do until next Scrum:
+- Continue Html file for admin/patient/doctor interface
+- Continue to add simple CURL to Admin 
+- Setup Sppringboot Security
+3. Need assistance / figure things out
+- Don't know how to add Calendar
+
+2024/09/16 Fei Yang
+1. Done since last scrum
+- 
+2. Plan until next Scrum
+- 
+3. Need assistance / figure things out
+- 
