@@ -12,4 +12,10 @@ public class HelloController {
     public String sayHello() {
         return "Hello, World!";
     }
+
+    @GetMapping("/database")
+    public String databaseEndpoint() {
+        return "Database info"; // Example response
+    }
+
 }
