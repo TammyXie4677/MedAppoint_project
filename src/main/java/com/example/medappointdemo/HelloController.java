@@ -13,9 +13,5 @@ public class HelloController {
         return "Hello, World!";
     }
 
-    @GetMapping("/database")
-    public String databaseEndpoint() {
-        return "Database info"; // Example response
-    }
 
 }
