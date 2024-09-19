@@ -23,11 +23,14 @@ public class User {
     @Column(length = 100)
     private String lastname;
 
-    @Column(length = 100)
+    @Column(length = 100, unique = true)
     private String email;
 
     @Column(length = 255)
     private String password;
+
+    @Column(length = 255)
+    private String confirmPassword;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;

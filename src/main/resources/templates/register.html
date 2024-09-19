@@ -24,33 +24,12 @@
 
 <div class="container register-container">
   <h1 class="text-center">Register to Medappoint</h1>
-  <form action="#" th:action="@{/register}" method="post">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="first-name">First Name</label>
-        <input type="text" class="form-control" id="first-name" name="first_name" required>
-      </div>
-      <div class="form-group col-md-6">
-        <label for="last-name">Last Name</label>
-        <input type="text" class="form-control" id="last-name" name="last_name" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <div class="form-group">
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" class="form-control" id="confirm-password" name="confirm_password" required>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block">Register</button>
-  </form>
+  <div class="text-center">
+    <a href="/register/patient" class="btn btn-primary btn-lg m-2">Register as Patient</a>
+    <a href="/register/doctor" class="btn btn-success btn-lg m-2">Register as Doctor</a>
+  </div>
   <p class="text-center mt-3">
-    Already have an account? <a th:href="@{/Login}" class="text-info">Login here</a>
+    Already have an account? <a th:href="@{/login}" class="text-info">Login here</a>
   </p>
 </div>
 
