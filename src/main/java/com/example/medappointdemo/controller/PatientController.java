@@ -11,11 +11,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
@@ -49,14 +52,14 @@ public class PatientController {
     private AppointmentService appointmentService;
 
     @ModelAttribute
-    public void addImgUrl(Principal principal,Model model) {
+    public void addCommonAttribute(Principal principal,Model model) {
 
         String email = principal.getName();
         User user = userRepository.findByEmail(email);
-        model.addAttribute("patient", user);
+        model.addAttribute("user", user);
 
         String photo = user.getPhoto();
-        if(photo.isEmpty() || photo == null) {
+        if(photo == null || photo.isEmpty()) {
             photo = "/public/avatar.png";
         }
         model.addAttribute("imgUrl", photo);

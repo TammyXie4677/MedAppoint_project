@@ -8,14 +8,20 @@ import com.example.medappointdemo.service.PatientService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -90,9 +96,36 @@ public class PublicController {
             return("redirect:/login");
         }
 
-
         String email = principal.getName();
         User user = userRepository.findByEmail(email);
+//        model.addAttribute("patient", user);
+
+        String photo = user.getPhoto();
+        if(photo == null || photo.isEmpty()) {
+            photo = "/public/avatar.png";
+        }
+        model.addAttribute("imgUrl", photo);
+
+        String viewAppsLink = "/patients/viewappointments/";
+        String makeAppLinke = "/appointment";
+        String patientId = user.getId().toString();
+        viewAppsLink = viewAppsLink + patientId;
+        makeAppLinke = "/patients/" + patientId + makeAppLinke;
+        Map<String, String> controllerLinks = new LinkedHashMap<>();
+        controllerLinks.put("View appointment(s)", viewAppsLink);
+        controllerLinks.put("Make appointment", makeAppLinke);
+        model.addAttribute("controllerLinks", controllerLinks);
+
+        ArrayList<String> defaultLinks = new ArrayList<>();
+        defaultLinks.add("Patients Home");
+        defaultLinks.add("/patients/");
+        String editInformationLink = "/edit";
+
+        model.addAttribute("defaultLinks", defaultLinks);
+        model.addAttribute("editInformationLink", editInformationLink);
+
+
+
         model.addAttribute("user", user);
 
         return "edit-form";

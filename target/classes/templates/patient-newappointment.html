@@ -13,16 +13,17 @@
     </style>
 </head>
 <body>
+<div th:replace="fragments/logged-header :: header"></div>
 <div class="container-sm">
     <h1>Select the date and time for appointment</h1>
 
-    <div class="container">
     <div>
-        <h3>Welcome</h3>
-        <p>Today is : <span th:text="${today}"></span> , and you could select the date up to :
-            <span th:text="${dueday}"></span>,
-            that means you could book an appointment in <span th:text="${daysBetween}"></span> days.</p>
-    </div>
+        <div>
+            <h3>Welcome, <span th:text="${user.lastName}" /> </h3>
+            <p>Today is : <span th:text="${today}"></span> , and you could select the date up to :
+                <span th:text="${dueday}"></span>,
+                that means you could book an appointment in <span th:text="${daysBetween}"></span> days.</p>
+        </div>
 
         <form th:action="@{/patients/appointments/save}" method="post">
             <div class="form-group">
@@ -37,16 +38,17 @@
                             th:text="${doctor.firstName + ' ' + doctor.lastName}">Doctor Name
                     </option>
                 </select>
-                </div>
+            </div>
 
-                <!-- 显示医生的专业领域 -->
-                <div id="specializationDiv" style="display: none;">
-                    <strong>Specialization:</strong> <span id="specializationText"></span>
-                </div>
+            <!-- 显示医生的专业领域 -->
+            <div id="specializationDiv" style="display: none;">
+                <strong>Specialization:</strong> <span id="specializationText"></span>
+            </div>
 
             <div class="form-group">
                 <label for="appointmentDate">Select a date :</label>
-                <input type="text" class="form-control" id="appointmentDate" placeholder="Select a date"  name="appointmentDate" readonly>
+                <input type="text" class="form-control" id="appointmentDate" placeholder="Select a date"
+                       name="appointmentDate" readonly>
             </div>
             <div class="form-group">
                 <label for="appointmentTime">Select a time period : </label>

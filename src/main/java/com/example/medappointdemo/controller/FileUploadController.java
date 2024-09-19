@@ -1,6 +1,7 @@
 package com.example.medappointdemo.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class FileUploadController {
@@ -22,10 +25,11 @@ public class FileUploadController {
     private String uploadDirectory;
 
     @PostMapping("/uploadAvatar")
-    public String uploadAvatar(@RequestParam("imgUrl") MultipartFile file, Model model) {
+    public ResponseEntity<Map<String, String>> uploadAvatar(@RequestParam("imgUrl") MultipartFile file, Model model) {
+        Map<String, String> response = new HashMap<>();
         if (file.isEmpty()) {
-            model.addAttribute("msg", "File is empty. Please select a valid image.");
-            return "redirect:/edit";
+            response.put("msg", "File is empty. Please select a valid image.");
+            return ResponseEntity.badRequest().body(response);
         }
 
         try {
@@ -43,17 +47,20 @@ public class FileUploadController {
             Files.write(filePath, file.getBytes());
 
             // Set the URL for the saved image (relative to the static directory)
-            String img = "/uploads/" + newFileName;
-            model.addAttribute("msg", "File uploaded successfully!");
-            model.addAttribute("imgUrl", img);
+            String imgUrl = "/uploads/" + newFileName;
+            response.put("imgUrl", imgUrl);
+            response.put("msg", "File uploaded successfully!");
+
+            return ResponseEntity.ok(response);
 
 
         } catch (IOException e) {
             e.printStackTrace();
-            model.addAttribute("msg", "Error uploading file: " + e.getMessage());
+            response.put("msg", "Error uploading file: " + e.getMessage());
+            return ResponseEntity.status(500).body(response);
         }
 
-        return "redirect:/edit"; // Adjust this based on your actual redirection
+
     }
 
     // Utility method to get the file extension

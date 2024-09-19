@@ -7,27 +7,20 @@
 
 
 </head>
-<body class="d-flex align-items-center justify-content-center">
-
+<body>
+<div th:replace="fragments/logged-header :: header"></div>
 <div class="container my-5">
-    <p>Welcome, Dr. : <span th:text="${admin.lastName}"/></p>
-</div>
+    <div th:if="${message}" class="alert alert-danger" role="alert">
+        <p th:text="${message}"></p>
+    </div>
 
-<div class="container my-5">
-    <a href="/logout" class="btn btn-danger">You could log out here.</a>
-</div>
+    <div class="hero-unit">
+        <h3>Welcome, admin: <span th:text="${admin.firstName+ ' ' + admin.lastName}"/></h3>
 
-<div class="container my-5">
-    <a th:href="${viewStatisticsLink}" class="btn btn-danger">View the statistics.</a>
+        <p>
+            To manage the clinic system, lick the links on the navigation.
+        </p>
+    </div>
 </div>
-
-<div class="container my-5">
-    <a th:href="${viewEmailLink}" class="btn btn-danger">View the email settings.</a>
-</div>
-
-<div class="container my-5">
-    <a th:href="${viewAvailabilityLink}" class="btn btn-danger">View the availability settings.</a>
-</div>
-
 </body>
 </html>

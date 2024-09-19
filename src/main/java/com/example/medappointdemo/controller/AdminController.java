@@ -1,6 +1,6 @@
 package com.example.medappointdemo.controller;
 
-
+import com.example.medappointdemo.Repository.AppointmentRepository;
 import com.example.medappointdemo.Repository.UserRepository;
 import com.example.medappointdemo.service.AdminService;
 import com.example.medappointdemo.model.Appointment;
@@ -20,9 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -41,21 +39,43 @@ public class AdminController {
     @Autowired
     private AvailabilityService availabilityService;
 
-    @GetMapping({"/", "/index", "/?continue",""})
-    public String index(Principal principal, Model model) {
+    @ModelAttribute
+    public void addCommonAttribute(Principal principal,Model model) {
+
         String email = principal.getName();
         User user = userRepository.findByEmail(email);
         model.addAttribute("admin", user);
+
+        String photo = user.getPhoto();
+        if(photo == null || photo.isEmpty()) {
+            photo = "/public/avatar.png";
+        }
+        model.addAttribute("imgUrl", photo);
+
         String viewStatisticsLink = "/admins/statistics";
         String viewEmailLink = "/admins/emails";
-        String viewAvailabilityLink = "/admins/availabilities/";
-        String viewAppoinetmentsLink = "/admins/appointments/";
-        String adminId = user.getId().toString();
+        String viewAvailabilitiesLink = "/admins/availabilities";
+        String viewAppoinetmentsLink = "/admins/appointments";
+        Map<String, String> controllerLinks = new LinkedHashMap<>();
+        controllerLinks.put("Statistics", viewStatisticsLink);
+        controllerLinks.put("Email setting",viewEmailLink);
+        controllerLinks.put("Availabilities",viewAvailabilitiesLink);
+        controllerLinks.put("Apoinetments",viewAppoinetmentsLink);
+        model.addAttribute("controllerLinks", controllerLinks);
 
-        model.addAttribute("viewStatisticsLink", viewStatisticsLink);
-        model.addAttribute("viewEmailLink",viewEmailLink);
-        model.addAttribute("viewAvailabilityLink",viewAvailabilityLink);
-        model.addAttribute("viewAppoinetmentsLink",viewAppoinetmentsLink);
+        ArrayList<String> defaultLinks = new ArrayList<>();
+        defaultLinks.add("Admin Home");
+        defaultLinks.add("/admins/");
+        String editInformationLink = "/edit";
+
+        model.addAttribute("defaultLinks", defaultLinks);
+        model.addAttribute("editInformationLink", editInformationLink);
+    }
+
+
+    @GetMapping({"/", "/index", "/?continue",""})
+    public String index(Principal principal, Model model) {
+
         return "admin-home";
     }
 

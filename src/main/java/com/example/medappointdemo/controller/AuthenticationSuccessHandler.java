@@ -45,7 +45,7 @@ public class AuthenticationSuccessHandler extends SavedRequestAwareAuthenticatio
 
         if (authentication.getAuthorities().stream()
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"))) {
-            setDefaultTargetUrl("/admin/");
+            setDefaultTargetUrl("/admins/");
         } else if (authentication.getAuthorities().stream()
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_DOCTOR")))  {
             setDefaultTargetUrl("/doctors/");

@@ -7,23 +7,22 @@
 
 
 </head>
-<body class="d-flex align-items-center justify-content-center">
+<body>
+<div th:replace="fragments/logged-header :: header"></div>
 <div class="container-sm">
     <h1>Patient-appointments List</h1>
-    <!--  <div th:if="${#authorization.expression('isAuthenticated() and !hasAuthority(''ROLE_ANONYMOUS'')')}">-->
     <div>
-
-
-        <!--    <h3>Welcome, <span th:text="${#authentication.name}"></span></h3>-->
-        <h3>Welcome</h3>
+        <h3>Welcome, <span th:text="${user.lastName}" /> </h3>
 
 
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Doctor</th>
                 <th>Date</th>
+                <th>Time</th>
+                <th>Doctor</th>
+
 
             </tr>
             </thead>
@@ -31,8 +30,10 @@
 
             <tr th:each="appointment : ${appointments}">
                 <td th:text="${appointment.id}">ID</td>
-                <td th:text="${appointment.doctor}">Doctor</td>
                 <td th:text="${appointment.appointmentDate}">Date</td>
+                <td th:text="${appointment.startTime + ' - ' + appointment.endTime}">Time</td>
+                <td th:text="${appointment.doctor.lastName}">Doctor</td>
+
             </tr>
             </tbody>
         </table>

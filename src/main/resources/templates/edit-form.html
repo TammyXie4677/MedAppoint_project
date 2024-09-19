@@ -6,7 +6,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<div th:replace="fragments/public-header :: header"></div>
+<div th:replace="fragments/logged-header :: header"></div>
 
 <div class="container my-5 d-flex align-items-center justify-content-center">
     <!-- Main form for user information -->
@@ -58,6 +58,9 @@
 
     <!-- Separate form for file upload -->
     <div class="form-group mt-5 mb-3">
+        <div class="d-flex justify-content-center align-items-center shadow-sm bg-white rounded">
+            <img th:src="@{${imgUrl}}" alt="Avatar" style="max-width: 200px; max-height: 200px; width: auto; height: auto;">
+        </div>
         <form id="uploadForm" th:action="@{/uploadAvatar}" enctype="multipart/form-data">
             <label for="imgUrl">Photo</label>
             <div>
@@ -86,23 +89,28 @@
                 return;
             }
 
-            // Check file size (2MB limit)
-            var maxSize = 2 * 1024 * 1024; // 2MB in bytes
+            // Check file size (5MB limit)
+            var maxSize = 5 * 1024 * 1024; // 5MB in bytes
             if (file.size > maxSize) {
-                alert('File size must not exceed 2MB.');
+                alert('File size must not exceed 5MB.');
                 return;
             }
 
-
             $.ajax({
-                url: '/uploadAvatar', // Your backend endpoint
+                url: '/uploadAvatar',
                 type: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
                 success: function(response) {
-                    alert('Image uploaded successfully');
-                    $('#photo').val(response.imgUrl);
+                    console.log(response);
+                    if (response.imgUrl) {
+                        // Update the hidden 'photo' field with the new imgUrl
+                        $('#photo').val(response.imgUrl);
+                        alert('Image uploaded successfully');
+                    } else {
+                        alert(response.msg);
+                    }
                 },
                 error: function(error) {
                     alert('Error uploading image');
