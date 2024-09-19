@@ -15,13 +15,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/index.html").permitAll() // Allow access to index.html
-                        .anyRequest().authenticated() // Require authentication for other requests
+                        .requestMatchers("/", "/index.html", "/login.html").permitAll() // Allow access to index.html and login.html
+                        .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable); // Optional: disable CSRF if not needed
 
         return http.build();
     }
+
 }
 
 

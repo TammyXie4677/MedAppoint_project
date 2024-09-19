@@ -9,4 +9,9 @@ public class UserController {
     public String home() {
         return "index"; // This will return index.html
     }
+
+    @GetMapping("/Login")
+    public String login() {
+        return "login"; // This will return login.html
+    }
 }

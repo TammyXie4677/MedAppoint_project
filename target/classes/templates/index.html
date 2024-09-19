@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,7 @@
 <div class="welcome-section">
     <h1 class="display-4">Welcome to MedAppoint</h1>
     <p class="lead">"Stay Organized and On Schedule."</p>
-    <a href="login.html" class="btn btn-primary btn-lg btn-custom">Go to Login</a>
+    <a th:href="@{/Login}" class="btn btn-primary btn-lg btn-custom">Go to Login</a>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
