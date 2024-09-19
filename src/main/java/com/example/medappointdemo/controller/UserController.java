@@ -20,5 +20,18 @@ public class UserController {
         return "register"; // This will return login.html
     }
 
+    @GetMapping("/Administrator")
+    public String adminDashboard() {
+        return "admin-dashboard";
+    }
 
+    @GetMapping("/Doctor-dashboard")
+    public String doctorDashboard() {
+        return "doctor-dashboard";
+    }
+
+    @GetMapping("/Patient-dashboard")
+    public String patientDashboard() {
+        return "patient-dashboard";
+    }
 }
