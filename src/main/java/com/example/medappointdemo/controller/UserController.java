@@ -14,4 +14,11 @@ public class UserController {
     public String login() {
         return "login"; // This will return login.html
     }
+
+    @GetMapping("/Register")
+    public String register() {
+        return "register"; // This will return login.html
+    }
+
+
 }

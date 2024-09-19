@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
 
 <div class="container login-container">
     <h1 class="text-center">Login to Medappoint</h1>
-    <form action="/login" method="post">
+    <form action="#" th:action="@{/login}" method="post">
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" name="email" required>
@@ -36,7 +36,7 @@
         <button type="submit" class="btn btn-primary btn-block">Login</button>
     </form>
     <p class="text-center mt-3">
-        Don't have an account? <a href="register.html" class="text-info">Register here</a>
+        Don't have an account? <a th:href="@{/Register}" class="text-info">Register here</a>
     </p>
 </div>
 

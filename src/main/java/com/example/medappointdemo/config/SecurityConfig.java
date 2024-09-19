@@ -15,7 +15,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/", "/index.html", "/login.html").permitAll() // Allow access to index.html and login.html
+                        .requestMatchers("/", "/Home", "/Login","/Register").permitAll() // Allow access to index.html and login.html
                         .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable); // Optional: disable CSRF if not needed
