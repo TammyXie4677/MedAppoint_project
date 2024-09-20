@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - MedAppoint</title>
+    <title>Welcome to MedAppoint</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-image: url('https://source.unsplash.com/1600x900/?healthcare,admin');
+            background-image: url('https://source.unsplash.com/1600x900/?healthcare,appointment');
             background-size: cover;
             background-position: center;
             color: white;
@@ -18,20 +18,23 @@
             align-items: center;
             margin: 0;
         }
-        .dashboard-section {
+        .welcome-section {
             text-align: center;
             background-color: rgba(186, 185, 185, 0.7);
             padding: 40px;
             border-radius: 10px;
         }
+        .btn-custom {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-<div class="dashboard-section">
-    <h1 class="display-4">Admin Dashboard</h1>
-    <p class="lead">Manage your application effectively!</p>
-    <a href="/logout" class="btn btn-danger btn-lg">Logout</a>
+<div class="welcome-section">
+    <h1 class="display-4">Welcome to MedAppoint</h1>
+    <p class="lead">"Stay Organized and On Schedule."</p>
+    <a th:href="@{/login}" class="btn btn-primary btn-lg btn-custom">Go to Login</a>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
