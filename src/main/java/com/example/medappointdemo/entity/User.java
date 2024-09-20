@@ -23,13 +23,13 @@ public class User {
     @Column(length = 100)
     private String lastname;
 
-    @Column(length = 100, unique = true)
+    @Column(length = 100, unique = true, nullable = false)
     private String email;
 
-    @Column(length = 255)
+    @Column(length = 255, unique = true, nullable = false)
     private String password;
 
-    @Column(length = 255)
+    @Transient
     private String confirmPassword;
 
     @Enumerated(EnumType.STRING)

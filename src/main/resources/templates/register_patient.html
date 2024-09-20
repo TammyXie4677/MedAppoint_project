@@ -25,6 +25,9 @@
 <div class="container register-container">
     <h1 class="text-center">Register as Patient</h1>
     <form action="#" th:action="@{/register/patient}" method="post" th:object="${user}">
+        <div th:if="${errorMessage}" class="alert alert-danger">
+            <p th:text="${errorMessage}"></p>
+        </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="first-name">First Name</label>
