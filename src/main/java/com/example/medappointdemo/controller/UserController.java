@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -45,16 +46,24 @@ public class UserController {
     }
 
     @PostMapping("/register/patient")
-    public String registerPatient(@ModelAttribute("user") User user) {
+    public String registerPatient(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
         user.setRole(UserRole.PATIENT);
-        userService.registerUser(user);
-        return "redirect:/patient-dashboard"; // Redirect after successful registration
+        return registerUser(user, redirectAttributes);
     }
 
     @PostMapping("/register/doctor")
-    public String registerDoctor(@ModelAttribute("user") User user) {
+    public String registerDoctor(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
         user.setRole(UserRole.DOCTOR);
-        userService.registerUser(user);
-        return "redirect:/doctor-dashboard"; // Redirect after successful registration
+        return registerUser(user, redirectAttributes);
+    }
+
+    private String registerUser(User user, RedirectAttributes redirectAttributes) {
+        try {
+            userService.registerUser(user, user.getConfirmPassword()); // Pass confirm password
+            return "redirect:/login"; // Redirect after successful registration
+        } catch (IllegalArgumentException e) {
+            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+            return "redirect:/register"; // Redirect back to registration with error
+        }
     }
 }
