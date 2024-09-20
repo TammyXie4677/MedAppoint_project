@@ -24,12 +24,12 @@ public class UserController {
 
     @GetMapping("/login")
     public String login() {
-        return "login"; // This will return login.html
+        return "login";
     }
 
     @GetMapping("/register")
     public String showRegistrationOptions() {
-        return "register"; // Landing page with options
+        return "register";
     }
 
     @GetMapping("/register/patient")
@@ -48,13 +48,13 @@ public class UserController {
     public String registerPatient(@ModelAttribute("user") User user) {
         user.setRole(UserRole.PATIENT);
         userService.registerUser(user);
-        return "redirect:/login"; // Redirect after successful registration
+        return "redirect:/patient-dashboard"; // Redirect after successful registration
     }
 
     @PostMapping("/register/doctor")
     public String registerDoctor(@ModelAttribute("user") User user) {
         user.setRole(UserRole.DOCTOR);
         userService.registerUser(user);
-        return "redirect:/login"; // Redirect after successful registration
+        return "redirect:/doctor-dashboard"; // Redirect after successful registration
     }
 }
